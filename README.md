@@ -10,11 +10,15 @@
 
 ### How do I set up offline functionality?
 
-Read/Edit the Source Code (instructions soon)
+Not implemented yet (working on it)
 
 ### How do I install custom Fonts/Cursors?
 
-Edit the Source Code (instructions soon)
+1. Copy the `example.ps1`
+2. Write a script to install it
+3. Add the option to `selector.ps1`
+4. Test
+5. PR if wanted
 
 ## Why is it called SeAProS?
 
