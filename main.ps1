@@ -18,7 +18,7 @@ Write-Output @"
 [S]ystem
 
 Built by MattheDev53 <matthew.c.albrecht@gmail.com>
-To be Licensed under AGPL-3.0
+Licensed under The AGPL-3.0
 "@
 
 $font = Get-FontPreference
