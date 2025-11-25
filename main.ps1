@@ -3,7 +3,7 @@
 . ./modules/mouse/selection.ps1
 . ./modules/font/selection.ps1
 # Make sure the directory is consistent
-Set-Location ~/
+Set-Location $PSScriptRoot
 
 Write-Output @"
    _____      ___    ____            _____
