@@ -12,7 +12,7 @@ Outputs the module path of the cursor selected from /modules/vscode/ (Defaults t
 				"Standard Version of VSCode"
 			)),
 			(New-Object System.Management.Automation.Host.ChoiceDescription(
-				"VSCode &Insider",
+				"VSCode &Insiders",
 				"Experimental Build of VSCode"
 			)),
 			(New-Object System.Management.Automation.Host.ChoiceDescription(
@@ -23,7 +23,7 @@ Outputs the module path of the cursor selected from /modules/vscode/ (Defaults t
 	$choice = $host.ui.PromptForChoice("VSCode Version Selection","Select a Version",$choices,0)
 	switch ( $choice ) {
 		0 {return "vscode"}
-		1 {return "VSCode Insider"}
-		2 {return "VSCodium"}
+		1 {return "insiders"}
+		2 {return "vscodium"}
 	}
 }
