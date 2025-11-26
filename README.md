@@ -4,7 +4,7 @@
 
 ## How do I use this?
 
-1. Run `git clone git@github.com:MattheDev53/6744-Setup.ps1.git` on a flash drive
+1. Run `git clone git@github.com:MattheDev53/6744-Setup.ps1.git .` on a flash drive
 2. Run `main.ps1`
 3. Follow the instructions from there
 
