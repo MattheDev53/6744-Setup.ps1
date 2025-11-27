@@ -1,6 +1,6 @@
 function Install-Font {
 	$RealRoot = "$PSScriptRoot/../../"
-	$resDir = $RealRoot/font/jetbrains/
+	$resDir = "$RealRoot/font/jetbrains/"
 
 	if (!(Test-Path $resDir/extracted/)) {
 		Extract-Font
@@ -18,7 +18,7 @@ function Install-Font {
 
 function Extract-Font {
 	$RealRoot = "$PSScriptRoot/../../"
-	$resDir = $RealRoot/font/jetbrains/
+	$resDir = "$RealRoot/font/jetbrains/"
 
 	if (!(Test-Path $resDir/font.zip)) {
 		Download-Font
@@ -30,7 +30,7 @@ function Extract-Font {
 
 function Download-Font {
 	$RealRoot = "$PSScriptRoot/../../"
-	$resDir = $RealRoot/font/jetbrains/
+	$resDir = "$RealRoot/font/jetbrains/"
 
 	Write-Output "|> Downloading JetBrains Mono"
 	Invoke-WebRequest "https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip" -OutFile $resDir/font.zip
