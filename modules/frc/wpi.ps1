@@ -1,9 +1,9 @@
 function Install-WPILib {
-	$RealRoot = $PSScriptRoot/../../
-	$frcFolder = $RealRoot/offline/frc
+	$RealRoot = "$PSScriptRoot/../../"
+	$resDir = "$RealRoot/offline/frc/wpi"
 
 	# I Can't install WPILib if It isn't extracted
-	if (!(Test-Path $frcFolder/wpi-extracted)) {
+	if (!(Test-Path $resDir/wpi-extracted)) {
 		Extract-WPILib
 	}
 	Write-Output "|> Running WPILib Installer "
@@ -12,19 +12,19 @@ function Install-WPILib {
 }
 
 function Download-WPILib {
-	$RealRoot = $PSScriptRoot/../../
-	$frcFolder = $RealRoot/offline/frc
+	$RealRoot = "$PSScriptRoot/../../"
+	$resDir = "$RealRoot/offline/frc/wpi"
 
 	Write-Output "|> Downloading WPILib Installer ISO"
-	Invoke-WebRequest "https://packages.wpilib.workers.dev/installer/v2026.1.1-beta-1/Win64/WPILib_Windows-2026.1.1-beta-1.iso" -OutFile $frcFolder/wpi.iso
+	Invoke-WebRequest "https://packages.wpilib.workers.dev/installer/v2026.1.1-beta-1/Win64/WPILib_Windows-2026.1.1-beta-1.iso" -OutFile $resDir/wpi.iso
 }
 
 function Extract-WPILib {
-	$RealRoot = $PSScriptRoot/../../
-	$frcFolder = $RealRoot/offline/frc
+	$RealRoot = "$PSScriptRoot/../../"
+	$resDir = "$RealRoot/offline/frc/wpi"
 
 	# I can't extract WPILib if I don't have the ISO
-	if (!(Test-Path $frcFolder/wpi.iso)) {
+	if (!(Test-Path $resDir/wpi.iso)) {
 		Download-WPILib
 	}
 
@@ -36,7 +36,7 @@ function Extract-WPILib {
 
 	# Saves the info about the disk image for later
 	Write-Output "|> Mounting WPILib ISO"
-  $mount = Mount-DiskImage $frcFolder/wpi.iso
+  $mount = Mount-DiskImage $resDir/wpi.iso
 	# Get all of the FILESYSTEM drives
 	#
 	# (Powershell is weird. Try running
@@ -59,6 +59,6 @@ function Extract-WPILib {
 	# This just copies all of the files in the ISO to a folder for later
   ls $wpiDrive | ForEach-Object {
 		Write-Output "|> Installing $_"
-    Copy-Item $wpiDrive/$_ -Destination $frcFolder/wpi-extracted/$_
+    Copy-Item $wpiDrive/$_ -Destination $resDir/wpi-extracted/$_
   }
 }

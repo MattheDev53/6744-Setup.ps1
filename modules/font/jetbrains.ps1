@@ -1,20 +1,37 @@
 function Install-Font {
-	Write-Output "|> Downloading JetBrains Mono"
-	Invoke-WebRequest "https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip" -OutFile font.zip
+	$RealRoot = "$PSScriptRoot/../../"
+	$resDir = $RealRoot/font/jetbrains/
 
-	Write-Output "|> Unzipping the font files"
-	Expand-Archive .\font.zip
+	if (!(Test-Path $resDir/extracted/)) {
+		Extract-Font
+	}
 
-	Write-Output "|> Deleting the original zip file"
-	Remove-Item font.zip # Clean up the zip file
-
-	Write-Output "|> Installing Fonts"
-	Get-ChildItem -Path .\font\fonts\ttf | ForEach-Object {
-			Write-Output "Installing $_"
+	Write-Output "|> Installing All JetBrains Mono Fonts"
+	Get-ChildItem -Path $resDir\extracted\font\fonts\ttf | ForEach-Object {
+			Write-Output "|> Installing $_"
 			Copy-Item $_ "C:\Windows\Fonts"
 		
 			#register font for all users
 			New-ItemProperty -Name $_.BaseName -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Fonts" -PropertyType string -Value $_.name}
-	Write-Output "|> Removing original font files"
-	Remove-Item .\font -Recurse -Force
+		}
+}
+
+function Extract-Font {
+	$RealRoot = "$PSScriptRoot/../../"
+	$resDir = $RealRoot/font/jetbrains/
+
+	if (!(Test-Path $resDir/font.zip)) {
+		Download-Font
+	}
+	
+	Write-Output "|> Extracting JetBrains Mono"
+	Expand-Archive $resDir/font.zip -DestinationPath $resDir/extracted
+}
+
+function Download-Font {
+	$RealRoot = "$PSScriptRoot/../../"
+	$resDir = $RealRoot/font/jetbrains/
+
+	Write-Output "|> Downloading JetBrains Mono"
+	Invoke-WebRequest "https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip" -OutFile $resDir/font.zip
 }
