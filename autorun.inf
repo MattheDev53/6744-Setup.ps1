@@ -1,0 +1,4 @@
+[Autorun]
+open=main.ps1
+action=Run SeAProS
+icon=SeAProS.ico
