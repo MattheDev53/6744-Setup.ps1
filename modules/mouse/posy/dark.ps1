@@ -1,6 +1,6 @@
 function Install-Mouse {
 	$RealRoot = "$PSScriptRoot/../../"
-	$resDir = "$RealRoot/mouse/posy/dark/"
+	$resDir = "$RealRoot/offline/mouse/posy/dark/"
 
 	if (!(Test-Path $resDir)) {
 		New-Item $resDir -ItemType Directory
