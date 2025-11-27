@@ -109,3 +109,22 @@ However if we look inside of VSCodium...
 ```
 
 This initially seems bad, but it's actually not. We can just *rename* the files to match what they would be. This works perfectly. Without `code.cmd` the WPILib Installer fails, and without `Code.exe` the shortcuts don't work (they can be modified later, but eh)
+
+## VSCode WPILib Compatibility List
+
+### Untested (PRs/Issues Welcome)
+
+Nothing on the chopping block
+
+### Working
+
+- VSCode
+- VSCodium
+- VSCode Insiders
+- Cursor
+- Void
+- Google Antigravity
+
+### Nonfunctional
+
+None at the moment

@@ -10,7 +10,7 @@ function Install-VSCode {
 		Patch-VSCode
 	}
 
-	Copy-Item $resDir/vscode.zip -Destination $HOME/Downloads/VSCode.zip
+	Copy-Item $resDir/vscodium-patched.zip -Destination $HOME/Downloads/VSCode.zip
 }
 
 function Patch-VSCode {
