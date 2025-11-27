@@ -1,6 +1,6 @@
 function Install-Font {
 	$RealRoot = "$PSScriptRoot/../../"
-	$resDir = "$RealRoot/font/jetbrains/"
+	$resDir = "$RealRoot/offline/font/jetbrains/"
 
 	if (!(Test-Path $resDir)) {
 		New-Item $resDir -ItemType Directory
