@@ -1,6 +1,6 @@
 function Install-Packages {
-	$packages @(
-		"REVRobotics.REVHardwareClient"
+	$packages = @(
+		"REVRobotics.REVHardwareClient",
 		"9NVV4PWDW27Z", # Phoenix Tuner X (From MS Store)
 		"9NQBKB5DW909"  # Pathplanner     (From MS Store)
 		# "grapplerobotics.GrappleHook" # Not on winget yet
