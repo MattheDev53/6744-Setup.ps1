@@ -6,7 +6,7 @@
 
 1. Run `git clone git@github.com:MattheDev53/6744-Setup.ps1.git .` on a flash drive
 2. Run `Set-ExecutionPolicy -ExecutionPolicy Undefined -Scope LocalMachine`
-3. Run `Unblock-File .` in the directory with the script
+3. Run `Get-ChildItem -Recurse | ForEach-Object { Unblock-File $_.FullName }` in the directory with the script
 4. Run `main.ps1`
 5. Follow the instructions from there
 
