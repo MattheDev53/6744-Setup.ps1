@@ -2,6 +2,10 @@ function Install-WPILib {
 	$RealRoot = "$PSScriptRoot/../../"
 	$resDir = "$RealRoot/offline/frc/wpi"
 
+	if (!(Test-Path $resDir)) {
+		New-Item $resDir -ItemType Directory
+	}
+
 	# I Can't install WPILib if It isn't extracted
 	if (!(Test-Path $resDir/wpi-extracted)) {
 		Extract-WPILib

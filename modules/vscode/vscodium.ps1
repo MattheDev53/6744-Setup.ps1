@@ -2,6 +2,10 @@ function Install-VSCode {
 	$RealRoot = "$PSScriptRoot/../../"
 	$resDir = "$RealRoot/offline/vscode/vscodium"
 
+	if (!(Test-Path $resDir)) {
+		New-Item $resDir -ItemType Directory
+	}
+
 	if (!(Test-Path $resDir/vscodium-patched.zip)) {
 		Patch-VSCode
 	}
