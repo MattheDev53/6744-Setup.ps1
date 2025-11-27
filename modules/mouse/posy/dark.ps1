@@ -12,7 +12,6 @@ function Install-Mouse {
 
 	Write-Output "|> Running cursor installation file"
 	Start-Process "$resDir\extracted\Posy's Cursor Black\_install Posy Black.inf" -Verb Install -Wait
-	}
 }
 
 function Extract-Mouse {
