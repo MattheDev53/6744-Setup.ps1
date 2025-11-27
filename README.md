@@ -10,7 +10,7 @@
 
 ### How do I set up offline functionality?
 
-Not implemented yet (working on it)
+Not fully implemented yet (working on it)
 
 ### How do I install custom Fonts/Cursors?
 
@@ -19,6 +19,14 @@ Not implemented yet (working on it)
 3. Add the option to `selector.ps1`
 4. Test
 5. PR if wanted
+
+## The script won't run on a fresh install because of a policy error
+
+Try running the following
+
+```ps1
+Set-ExecutionPolicy -ExecutionPolicy Undefined -Scope LocalMachine
+```
 
 ## Why is it called SeAProS?
 
