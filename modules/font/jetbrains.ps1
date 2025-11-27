@@ -16,7 +16,7 @@ function Install-Font {
 			Copy-Item $_ "C:\Windows\Fonts"
 		
 			#register font for all users
-			New-ItemProperty -Name $_.BaseName -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Fonts" -PropertyType string -Value $_.name}
+			New-ItemProperty -Name $_.BaseName -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Fonts" -PropertyType string -Value $_.name
 		}
 }
 
