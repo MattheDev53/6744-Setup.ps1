@@ -1,9 +1,8 @@
 function Configure-Git {
 	winget install Git.Git --silent --accept-source-agreements --accept-package-agreements
 	$gitName = Read-Host "Enter Your Git Username"
-	git config user.name $userName
-  $gitMail = Read-Host "Enter Your Git Email"
-	git config user.email $userMail
+  	$gitMail = Read-Host "Enter Your Git Email"
+	Add-Content = ~/.gitconfig "[user]`n`tname = $gitName`n`temail = $gitMail"
   if (!(Test-Path $HOME/.ssh/)) {
     New-Item $HOME/.ssh -ItemType Directory | Out-Null
   }
