@@ -1,5 +1,5 @@
 function Install-Mouse {
-	$RealRoot = "$PSScriptRoot/../../"
+	$RealRoot = "$PSScriptRoot/../../../"
 	$resDir = "$RealRoot/offline/mouse/posy/dark/"
 
 	if (!(Test-Path $resDir)) {
@@ -15,7 +15,7 @@ function Install-Mouse {
 }
 
 function Extract-Mouse {
-	$RealRoot = "$PSScriptRoot/../../"
+	$RealRoot = "$PSScriptRoot/../../../"
 	$resDir = "$RealRoot/offline/mouse/posy/dark/"
 
 	if (!(Test-Path $resDir/font.zip)) {
@@ -27,9 +27,9 @@ function Extract-Mouse {
 }
 
 function Download-Mouse {
-	$RealRoot = "$PSScriptRoot/../../"
+	$RealRoot = "$PSScriptRoot/../../../"
 	$resDir = "$RealRoot/offline/mouse/posy/dark/"
 
 	Write-Output "|> Downloading Posy Cursor Dark"
-	Invoke-WebRequest "https://www.michieldb.nl/other/cursors/Posy's%20Cursor%20Black.zip" -OutFile mouse.zip
+	Invoke-WebRequest "https://www.michieldb.nl/other/cursors/Posy's%20Cursor%20Black.zip" -OutFile $resDir/mouse.zip
 }
