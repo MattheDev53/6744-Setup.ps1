@@ -16,7 +16,7 @@ Outputs the module path of the cursor selected from /modules/mouse/ (No Defaults
 				"Posy's improved cursors for Windows"
 			)),
 			(New-Object System.Management.Automation.Host.ChoiceDescription(
-				"Posy Cursor &Dark",
+				"Posy Cursor &Black",
 				"Posy's improved cursors for Windows"
 			))
 	)

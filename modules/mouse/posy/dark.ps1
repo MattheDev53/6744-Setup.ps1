@@ -25,7 +25,7 @@ function Extract-Mouse {
 		Download-Mouse
 	}
 	
-	Write-Output "|> Extracting Posy Cursor Dark"
+	Write-Output "|> Extracting Posy Cursor Black"
 	Expand-Archive $resDir/mouse.zip -DestinationPath $resDir/extracted
 }
 
@@ -33,6 +33,6 @@ function Download-Mouse {
 	$RealRoot = "$PSScriptRoot/../../../"
 	$resDir = "$RealRoot/offline/mouse/posy/dark/"
 
-	Write-Output "|> Downloading Posy Cursor Dark"
+	Write-Output "|> Downloading Posy Cursor Black"
 	Invoke-WebRequest "https://www.michieldb.nl/other/cursors/Posy's%20Cursor%20Black.zip" -OutFile $resDir/mouse.zip
 }
