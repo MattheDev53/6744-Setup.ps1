@@ -47,7 +47,7 @@ Install-Font
 
 $doingTask++
 Write-Output "Task $doingTask/$tasks`: Installing $cursor"
-Install-Cursor
+Install-Mouse
 
 $doingTask++
 Write-Output "Task $doingTask/$tasks`: Downloading $vscode"
