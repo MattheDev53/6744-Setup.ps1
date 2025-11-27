@@ -60,6 +60,8 @@ function Extract-WPILib {
 
 	Write-Output "|> ISO Mount Point found at $wpiDrive"
 
+	New-Item $resDir/wpi-extracted -ItemType Directory | Out-Null
+	
 	# This just copies all of the files in the ISO to a folder for later
   ls $wpiDrive | ForEach-Object {
 		Write-Output "|> Installing $_"
