@@ -12,6 +12,9 @@ function Install-Mouse {
 
 	Write-Output "|> Running cursor installation file"
 	Start-Process "$resDir\extracted\Posy's Cursor Black\_install Posy Black.inf" -Verb Install -Wait
+	Write-Output "|> Running Control Panel Mouse"
+	Write-Output "!: Go to the `"Pointers`" tab and select `"Posy's Cursor Black`""
+	Start-Process Show-ControlPanelItem Mouse -Wait
 }
 
 function Extract-Mouse {
