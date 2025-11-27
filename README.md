@@ -22,7 +22,7 @@ Not fully implemented yet (working on it)
 
 ## The script won't run on a fresh install because of a policy error
 
-Try running the following
+Try running the following as an Administrator
 
 ```ps1
 Set-ExecutionPolicy -ExecutionPolicy Undefined -Scope LocalMachine
