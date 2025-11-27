@@ -1,13 +1,14 @@
-. ./modules/git.ps1
-. ./modules/browser.ps1
-. ./modules/packages.ps1
+$mod = "$PSScriptRoot/modules"
+. $mod/git.ps1
+. $mod/browser.ps1
+. $mod/packages.ps1
 
-. ./modules/frc/wpi.ps1
-. ./modules/frc/ni.ps1
+. $mod/frc/wpi.ps1
+. $mod/frc/ni.ps1
 
-. ./modules/vscode/selection.ps1
-. ./modules/mouse/selection.ps1
-. ./modules/font/selection.ps1
+. $mod/vscode/selection.ps1
+. $mod/mouse/selection.ps1
+. $mod/font/selection.ps1
 
 # Make sure the directory is consistent
 Set-Location $PSScriptRoot
@@ -33,40 +34,40 @@ $mouse = Get-MousePreference
 $vscode = Get-VSCodePreference
 $browser = Get-BrowserPreference
 
-. ./modules/font/$font.ps1
-. ./modules/mouse/$mouse.ps1
-. ./modules/vscode/$vscode.ps1
+. $mod/font/$font.ps1
+. $mod/mouse/$mouse.ps1
+. $mod/vscode/$vscode.ps1
 
 $tasks = 8
 $doingTask = 0
 
 $doingTask++
-Write-Output "Task $doingTask/$tasks: Installing $font"
+Write-Output "Task $doingTask/$tasks`: Installing $font"
 Install-Font
 
 $doingTask++
-Write-Output "Task $doingTask/$tasks: Installing $cursor"
+Write-Output "Task $doingTask/$tasks`: Installing $cursor"
 Install-Cursor
 
 $doingTask++
-Write-Output "Task $doingTask/$tasks: Downloading $vscode"
+Write-Output "Task $doingTask/$tasks`: Downloading $vscode"
 Install-VSCode
 
 $doingTask++
-Write-Output "Task $doingTask/$tasks: Installing $browser"
+Write-Output "Task $doingTask/$tasks`: Installing $browser"
 winget install $browser --silent --accept-source-agreements --accept-package-agreements
 
 $doingTask++
-Write-Output "Task $doingTask/$tasks: Configuring Git"
+Write-Output "Task $doingTask/$tasks`: Configuring Git"
 Configure-Git
 
 $doingTask++
-Write-Output "Task $doingTask/$tasks: Installing Non-WPILib Apps"
+Write-Output "Task $doingTask/$tasks`: Installing Non-WPILib Apps"
 Install-Packages
 
 $doingTask++
-Write-Output "Task $doingTask/$tasks: Installing WPILib"
+Write-Output "Task $doingTask/$tasks`: Installing WPILib"
 Install-WPILib
 
 $doingTask++
-Write-Output "Task $doingTask/$tasks: Installing NI Gametools"
+Write-Output "Task $doingTask/$tasks`: Installing NI Gametools"
