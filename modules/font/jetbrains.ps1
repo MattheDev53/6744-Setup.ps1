@@ -3,7 +3,7 @@ function Install-Font {
 	$resDir = "$RealRoot/offline/font/jetbrains/"
 
 	if (!(Test-Path $resDir)) {
-		New-Item $resDir -ItemType Directory
+		New-Item $resDir -ItemType Directory | Out-Null
 	}
 
 	if (!(Test-Path $resDir/extracted/)) {

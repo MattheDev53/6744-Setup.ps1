@@ -3,7 +3,7 @@ function Install-Mouse {
 	$resDir = "$RealRoot/offline/mouse/posy/dark/"
 
 	if (!(Test-Path $resDir)) {
-		New-Item $resDir -ItemType Directory
+		New-Item $resDir -ItemType Directory | Out-Null
 	}
 
 	if (!(Test-Path $resDir/extracted/)) {

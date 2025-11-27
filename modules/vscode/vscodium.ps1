@@ -3,7 +3,7 @@ function Install-VSCode {
 	$resDir = "$RealRoot/offline/vscode/vscodium"
 
 	if (!(Test-Path $resDir)) {
-		New-Item $resDir -ItemType Directory
+		New-Item $resDir -ItemType Directory | Out-Null
 	}
 
 	if (!(Test-Path $resDir/vscodium-patched.zip)) {

@@ -3,7 +3,7 @@ function Install-WPILib {
 	$resDir = "$RealRoot/offline/frc/wpi"
 
 	if (!(Test-Path $resDir)) {
-		New-Item $resDir -ItemType Directory
+		New-Item $resDir -ItemType Directory | Out-Null
 	}
 
 	# I Can't install WPILib if It isn't extracted

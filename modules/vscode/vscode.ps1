@@ -3,7 +3,7 @@ function Install-VSCode {
 	$resDir = "$RealRoot/offline/vscode/default"
 
 	if (!(Test-Path $resDir)) {
-		New-Item $resDir -ItemType Directory
+		New-Item $resDir -ItemType Directory | Out-Null
 	}
 	if (!(Test-Path $resDir/vscode.zip)) {
 		Write-Output "|> Downloading VSCode"
