@@ -38,7 +38,10 @@ function Extract-VSCode {
 	}
 	
 	Write-Output "|> Extracting Cursor"
-	Write-Output "!: Install the program at $resDir/cursor-extracted"
+	Write-Output "!: Follow the below instructions carefully"
+	Write-Output "!: At Step 2: Install the program at $resDir/void-extracted"
+	Write-Output "!: At Step 3: Check `"Don't Create a Start Menu Folder`""
+	Write-Output "!: At Step 4: Uncheck all boxes"
 	Start-Process $resDir/cursor.exe -Wait
 }
 
