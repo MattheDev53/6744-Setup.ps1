@@ -1,50 +1,49 @@
 function Install-VSCode {
 	$RealRoot = "$PSScriptRoot/../../"
-	$resDir = "$RealRoot/offline/vscode/antigravity"
+	$resDir = "$RealRoot/offline/vscode/void"
 
 	if (!(Test-Path $resDir)) {
 		New-Item $resDir -ItemType Directory | Out-Null
 	}
 
-	if (!(Test-Path $resDir/antigravity.zip)) {
+	if (!(Test-Path $resDir/void.zip)) {
 		Patch-VSCode
 	}
 
-	Copy-Item $resDir/antigravity.zip -Destination $HOME/Downloads/VSCode.zip
+	Copy-Item $resDir/void.zip -Destination $HOME/Downloads/VSCode.zip
 }
 
 function Patch-VSCode {
 	$RealRoot = "$PSScriptRoot/../../"
-	$resDir = "$RealRoot/offline/vscode/antigravity"
+	$resDir = "$RealRoot/offline/vscode/void"
 
-	if (!(Test-Path $resDir/antigravity)) {
+	if (!(Test-Path $resDir/void)) {
 		Extract-VSCode
 	}
 
-	Write-Output "|> Patching Google Antigravity"
-	Rename-Item $resDir/antigravity-extracted/bin/antigravity.cmd code.cmd
-	Copy-Item $resDir/antigravity-extracted/Antigravity.exe $resDir/antigravity/Code.exe
-	Compress-Archive $resDir/antigravity-extracted/* -DestinationPath $resDir/antigravity-patched.zip
-
+	Write-Output "|> Patching Void"
+	Rename-Item $resDir/void-extracted/bin/void.cmd code.cmd
+	Copy-Item $resDir/void-extracted/Void.exe $resDir/void/Code.exe
+	Compress-Archive $resDir/void-extracted/* -DestinationPath $resDir/void-patched.zip
 }
 
 function Extract-VSCode {
 	$RealRoot = "$PSScriptRoot/../../"
-	$resDir = "$RealRoot/offline/vscode/antigravity"
+	$resDir = "$RealRoot/offline/vscode/void"
 
-	if (!(Test-Path $resDir/antigravity.exe)) {
+	if (!(Test-Path $resDir/void.exe)) {
 		Download-VSCode
 	}
 	
-	Write-Output "|> Extracting Google Antigravity"
-	Write-Output "!: Install the program at $resDir/antigravity-extracted"
-	Start-Process $resDir/antigravity.exe -Wait
+	Write-Output "|> Extracting Void"
+	Write-Output "!: Install the program at $resDir/void-extracted"
+	Start-Process $resDir/void.exe -Wait
 }
 
 function Download-VSCode {
 	$RealRoot = "$PSScriptRoot/../../"
-	$resDir = "$RealRoot/offline/vscode/antigravity"
+	$resDir = "$RealRoot/offline/vscode/void"
 
-	Write-Output "|> Downloading Google Antigravity"
-	Invoke-WebRequest "" -Outfile $resDir/antigravity.exe
+	Write-Output "|> Downloading Void"
+	Invoke-WebRequest "https://github.com/voideditor/binaries/releases/download/1.99.30044/VoidSetup-x64-1.99.30044.exe" -Outfile $resDir/void.exe
 }
